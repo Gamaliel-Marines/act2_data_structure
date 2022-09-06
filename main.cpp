@@ -18,11 +18,18 @@
 
 using namespace std;
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
 	//variables, vectors and files needed for program to execute
-	int num_of_data, num_of_searches, num_of_comparisons_bubble, num_of_comparisons_selection, num_of_comparisons_insertion;
+	int num_of_data;
+	int num_of_searches;
+	int num_of_comparisons_bubble;
+	int num_of_comparisons_selection;
+	int num_of_comparisons_insertion;
+	
 	vector<int> data_vec, search_data_vec;
-	string data, searched_data;
+	string data;
+	string searched_data;
 	ifstream input_file(argv[1], ios::in);
 	ofstream output_file(argv[2], ios::out);
 
@@ -41,7 +48,8 @@ int main(int argc, char* argv[]) {
 	input_file>>num_of_data;
 
 	//reading the vector of data
-	for (size_t i{}; i < num_of_data; ++i) {
+	for (size_t i{}; i < num_of_data; ++i)
+	{
 		getline(input_file, data, ' ');
 		data_vec.push_back(stoi(data));
 	}
@@ -63,7 +71,8 @@ int main(int argc, char* argv[]) {
 
 	pair<int, int> results{};
 
-	for (size_t i{}; i < num_of_searches; ++i){
+	for (size_t i{}; i < num_of_searches; ++i)
+	{
 		getline(input_file, searched_data, ' ');
 		search_data_vec.push_back(stoi(searched_data));
 

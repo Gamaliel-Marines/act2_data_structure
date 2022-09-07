@@ -20,7 +20,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	//variables, vectors and files needed for program to execute
+	//variables, vectors and files needed for the execution of the program
 	int num_of_data;
 	int num_of_searches;
 	int num_of_comparisons_bubble;
@@ -28,20 +28,34 @@ int main(int argc, char* argv[])
 	int num_of_comparisons_insertion;
 	
 	vector<int> data_vec, search_data_vec;
+	
 	string data;
 	string searched_data;
+	
+	//reads file
 	ifstream input_file(argv[1], ios::in);
+	//writes file
 	ofstream output_file(argv[2], ios::out);
 
-	//error management
-	if (argc != 3){
-		cout<<"Error: The number of arguments is bigger than needed."<<argv[0]<<"\nFormat: <exe> <input.txt> <output.txt>";
+	//error management and validation
+	if (argc != 3)
+	{
+		//if the number of data is larger than needed
+		cout<<"Cannot be executed, number of arguments exceeds the need."<<argv[0]<<"\nFormat: <exe> <input.txt> <output.txt>";
 		return -1;
-	}else if (input_file.fail()){
-		cout<<"Error: Cant open input file. ";
+	}
+	
+	else if (input_file.fail())
+	{
+		//if the file coudnt be opened
+		cout<<"Cannot open input file\n";
 		return -1;
-	}else if (output_file.fail()){
-		cout<<"Error: Cant create output file. ";
+	}
+	
+	else if (output_file.fail())
+	{
+		//if canoot be written in file
+		cout<<"Cannot create output file\n";
 		return -1;
 	}
 
@@ -51,6 +65,7 @@ int main(int argc, char* argv[])
 	for (size_t i{}; i < num_of_data; ++i)
 	{
 		getline(input_file, data, ' ');
+		
 		data_vec.push_back(stoi(data));
 	}
 
